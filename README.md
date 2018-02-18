@@ -1,1 +1,1 @@
-# LifeAssistant
+# 毕业设计—生活助手
