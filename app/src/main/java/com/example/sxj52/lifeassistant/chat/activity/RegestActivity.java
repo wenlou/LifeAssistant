@@ -37,7 +37,7 @@ import me.iwf.photopicker.utils.PhotoPickerIntent;
 
 
 /**
- * Created by WZH on 2016/12/8.
+ * Created by sxj on 2018/2/19.
  */
 
 public class RegestActivity extends BaseActivity implements View.OnClickListener,ActivityCompat.OnRequestPermissionsResultCallback {
@@ -165,25 +165,21 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void initView() {
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
-        passwordConfirm = (EditText) findViewById(R.id.passwordConfirm);
-        imageView = (ImageView) findViewById(R.id.image);
+        username =  findViewById(R.id.username);
+        password =  findViewById(R.id.password);
+        passwordConfirm =  findViewById(R.id.passwordConfirm);
+        imageView = findViewById(R.id.image);
         imageView.setOnClickListener(this);
         findViewById(R.id.register).setOnClickListener(this);
         dialog = new LoadingDialog(this);
         dialog.setCanceledOnTouchOutside(false);
-        setRightImage(R.drawable.icon_select, new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        setRightImage(R.drawable.icon_select, (view)-> {
                 register();
-            }
         });
         viewPart = findViewById(R.id.view_part);
-        password.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+        password.getViewTreeObserver().addOnGlobalLayoutListener(()->{
             //当键盘弹出隐藏的时候会 调用此方法。
-            @Override
-            public void onGlobalLayout() {
+
                 Rect r = new Rect();
                 //获取当前界面可视部分
                 RegestActivity.this.getWindow().getDecorView().getWindowVisibleDisplayFrame(r);
@@ -196,7 +192,7 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
                 }else {
                     viewPart.setTranslationY(60);
                 }
-            }
+
         });
     }
 

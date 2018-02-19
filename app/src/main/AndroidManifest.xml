@@ -57,15 +57,14 @@
         </activity>
         <!-- 反馈组件 END -->
         <activity android:name=".ui.activity.MainActivity">
-
-        </activity>
-        <activity
-            android:name=".chat.activity.LoginActivity"
-            android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".chat.activity.LoginActivity"
+            android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
             android:name="me.iwf.photopicker.PhotoPickerActivity"
@@ -77,6 +76,7 @@
         <activity
             android:name=".chat.activity.RegestActivity"
             android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".chat.activity.SuggestActivity"/>
     </application>
 
 </manifest>

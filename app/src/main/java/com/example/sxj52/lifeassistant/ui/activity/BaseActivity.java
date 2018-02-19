@@ -1,5 +1,7 @@
 package com.example.sxj52.lifeassistant.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
@@ -9,8 +11,17 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.GetCallback;
+import com.bumptech.glide.Glide;
 import com.example.sxj52.lifeassistant.R;
+import com.example.sxj52.lifeassistant.chat.activity.LoginActivity;
+import com.example.sxj52.lifeassistant.event.LoginSuccessdEvent;
 import com.example.sxj52.lifeassistant.ui.activity.fragment.BaseFragment;
+
+import org.greenrobot.eventbus.Subscribe;
 
 
 /**
@@ -21,9 +32,23 @@ public class BaseActivity extends FragmentActivity {
     private TextView error_tv ;
     private ImageView error_iv ;
     private RotateAnimation animation ;
+    private Context mContext;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+    @Subscribe
+    public  void onEventMainThread(LoginSuccessdEvent event){
+        checkUser();
+    }
+    public void checkUser(){
+        AVUser user = AVUser.getCurrentUser() ;
+        if(user==null){
+            startActivity(new Intent(BaseActivity.this, LoginActivity.class));
+            return;
+        }
+
     }
     private void init(){
         errorView = findViewById(R.id.errorView);
