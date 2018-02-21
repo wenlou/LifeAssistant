@@ -14,4 +14,6 @@
     <color name="tree_green">#5CB98D</color>
     <color name="dark_tree_green">#428666</color>
     <color name="status_like_pink">#ff6868</color>
+
+    <color name="news_tv_source_color">#a3a3a3</color>
 </resources>

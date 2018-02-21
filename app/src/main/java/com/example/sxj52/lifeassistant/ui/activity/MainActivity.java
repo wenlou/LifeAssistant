@@ -9,6 +9,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.SaveCallback;
 import com.example.sxj52.lifeassistant.R;
+import com.example.sxj52.lifeassistant.ui.activity.fragment.NewsFragment;
 import com.example.sxj52.lifeassistant.ui.activity.fragment.PersonFragment;
 import com.example.sxj52.lifeassistant.view.tab.BarEntity;
 import com.example.sxj52.lifeassistant.view.tab.BottomTabBar;
@@ -20,6 +21,7 @@ public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectL
     private BottomTabBar tb ;
     private List<BarEntity> bars ;
     private PersonFragment personFragment ;
+    private NewsFragment newsFragment ;
     private FragmentManager manager ;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -35,11 +37,12 @@ public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectL
         tb.setManager(manager);
         tb.setOnSelectListener(this);
         bars = new ArrayList<>();
-//        bars.add(new BarEntity("主页",R.drawable.ic_home_select,R.drawable.ic_home_unselect));
+
 //        bars.add(new BarEntity("段子",R.drawable.ic_textjoke_select,R.drawable.ic_textjoke_unselect));
 //        bars.add(new BarEntity("趣图",R.drawable.ic_imagejoke_select,R.drawable.ic_imagejoke_unselect));
 //        bars.add(new BarEntity("圈子",R.drawable.ic_dt_select,R.drawable.ic_dt_unselect));
         bars.add(new BarEntity("个人",R.drawable.ic_my_select,R.drawable.ic_my_unselect));
+        bars.add(new BarEntity("主页",R.drawable.ic_home_select,R.drawable.ic_home_unselect));
         tb.setBars(bars);
     }
 
@@ -52,12 +55,12 @@ public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectL
                 }
                 tb.switchContent(personFragment);
                 break;
-//            case 1:
-//                if (textJokeFragment==null){
-//                    textJokeFragment = new TextJokeFragment();
-//                }
-//                tb.switchContent(textJokeFragment);
-//                break;
+            case 1:
+                if (newsFragment==null){
+                    newsFragment = new NewsFragment();
+                }
+                tb.switchContent(newsFragment);
+                break;
 //            case 2:
 //                if (imageJokeFragment==null){
 //                    imageJokeFragment = new ImageJokeFragment();

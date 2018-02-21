@@ -77,6 +77,7 @@
             android:name=".chat.activity.RegestActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".chat.activity.SuggestActivity"/>
+        <activity android:name=".chat.activity.NewsLookActivity"/>
     </application>
 
 </manifest>
