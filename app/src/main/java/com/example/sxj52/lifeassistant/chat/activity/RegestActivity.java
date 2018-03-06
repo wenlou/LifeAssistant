@@ -44,6 +44,7 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
     private EditText username;
     private EditText password;
     private EditText passwordConfirm;
+    private EditText email;
     private String path = null;
     private int REQUEST_CODE = 100;
     private ImageView imageView;
@@ -114,6 +115,7 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
         String name = username.getText().toString();
         String pass = password.getText().toString();
         String passConfirm = passwordConfirm.getText().toString();
+        String em=email.getText().toString();
         if (TextUtils.isEmpty(name)) {
             Toast.makeText(RegestActivity.this, "用户名不能为空！", Toast.LENGTH_LONG).show();
             return;
@@ -124,6 +126,14 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
         }
         if (TextUtils.isEmpty(passConfirm)) {
             Toast.makeText(RegestActivity.this, "请再次确认密码！", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(em)) {
+            Toast.makeText(RegestActivity.this, "邮箱不能为空", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (!em.matches("[\\w\\.\\-]+@([\\w\\-]+\\.)+[\\w\\-]+")) {
+            Toast.makeText(RegestActivity.this, "邮箱格式错误", Toast.LENGTH_LONG).show();
             return;
         }
         if (!pass.equals(passConfirm)) {
@@ -139,6 +149,7 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
         AVUser user = new AVUser();
         user.setUsername(name);// 设置用户名
         user.setPassword(pass);// 设置密码
+        user.setEmail(em);
 
         if (!TextUtils.isEmpty(path)) {
             try {
@@ -154,10 +165,10 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
                 dialog.dismiss();
                 if (e == null) {
                     // 注册成功
-                    EventBus.getDefault().post(new LoginSuccessdEvent());
+                    startActivity(new Intent(RegestActivity.this,LoginActivity.class));
                     finish();
                 } else {
-                    Toast.makeText(RegestActivity.this, "注册失败，请稍后重试！", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegestActivity.this, e.getMessage()+"注册失败，请稍后重试！", Toast.LENGTH_LONG).show();
                     // 失败的原因可能有多种，常见的是用户名已经存在。
                 }
             }
@@ -168,6 +179,7 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
         username =  findViewById(R.id.username);
         password =  findViewById(R.id.password);
         passwordConfirm =  findViewById(R.id.passwordConfirm);
+        email=findViewById(R.id.email);
         imageView = findViewById(R.id.image);
         imageView.setOnClickListener(this);
         findViewById(R.id.register).setOnClickListener(this);

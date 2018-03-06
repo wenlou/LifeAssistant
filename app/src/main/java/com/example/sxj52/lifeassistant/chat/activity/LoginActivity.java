@@ -80,7 +80,7 @@ public class LoginActivity extends BaseActivity {
                     EventBus.getDefault().post(new LoginSuccessdEvent());
                     finish();
                 } else {
-                    Toast.makeText(LoginActivity.this,"登录失败,请重试！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,e.getMessage()+"登录失败,请重试！", Toast.LENGTH_SHORT).show();
                 }
 
             }
