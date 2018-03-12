@@ -1,5 +1,7 @@
 package com.example.sxj52.lifeassistant.ui.activity;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,20 +10,30 @@ import android.util.Log;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.SaveCallback;
+import com.bumptech.glide.Glide;
 import com.example.sxj52.lifeassistant.R;
+import com.example.sxj52.lifeassistant.adapter.WeatherAdapter;
 import com.example.sxj52.lifeassistant.ui.activity.fragment.NewsFragment;
 import com.example.sxj52.lifeassistant.ui.activity.fragment.PersonFragment;
+import com.example.sxj52.lifeassistant.ui.activity.fragment.WeatherFragment;
+import com.example.sxj52.lifeassistant.utils.HttpUtil;
 import com.example.sxj52.lifeassistant.view.tab.BarEntity;
 import com.example.sxj52.lifeassistant.view.tab.BottomTabBar;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectListener{
     private BottomTabBar tb ;
     private List<BarEntity> bars ;
     private PersonFragment personFragment ;
     private NewsFragment newsFragment ;
+    private WeatherFragment weatherFragment;
     private FragmentManager manager ;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -32,6 +44,21 @@ public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectL
     }
 
     private void initView() {
+        String requestBingPic = "http://guolin.tech/api/bing_pic";
+        HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String bingPic = response.body().string();
+                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit();
+                editor.putString("bing_pic", bingPic);
+                editor.apply();
+            }
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+        });
         manager = getSupportFragmentManager();
         tb = (BottomTabBar) findViewById(R.id.tb);
         tb.setManager(manager);
@@ -43,6 +70,7 @@ public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectL
 //        bars.add(new BarEntity("圈子",R.drawable.ic_dt_select,R.drawable.ic_dt_unselect));
         bars.add(new BarEntity("个人",R.drawable.ic_my_select,R.drawable.ic_my_unselect));
         bars.add(new BarEntity("主页",R.drawable.ic_home_select,R.drawable.ic_home_unselect));
+        bars.add(new BarEntity("天气",R.drawable.ic_home_select,R.drawable.ic_home_unselect));
         tb.setBars(bars);
     }
 
@@ -61,12 +89,12 @@ public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectL
                 }
                 tb.switchContent(newsFragment);
                 break;
-//            case 2:
-//                if (imageJokeFragment==null){
-//                    imageJokeFragment = new ImageJokeFragment();
-//                }
-//                tb.switchContent(imageJokeFragment);
-//                break;
+            case 2:
+                if (weatherFragment==null){
+                    weatherFragment = new WeatherFragment();
+                }
+                tb.switchContent(weatherFragment);
+                break;
 //            case 3:
 //                if (circleFragment==null){
 //                    circleFragment = new CircleFragment();

@@ -3,6 +3,7 @@ package com.example.sxj52.lifeassistant.http;
 
 
 import com.example.sxj52.lifeassistant.http.api.NewsApi;
+import com.example.sxj52.lifeassistant.http.api.WeatherAPI;
 import com.example.sxj52.lifeassistant.utils.Constant;
 
 import okhttp3.OkHttpClient;
@@ -21,6 +22,7 @@ public class NetWorkUtil {
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
     private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
     private static NewsApi NewsApi;
+    private static WeatherAPI weatherAPI;
     /**
      * 初始化okhttp
      */
@@ -51,6 +53,26 @@ public class NetWorkUtil {
         }
         return NewsApi;
     }
+
+    /**
+     * 获取天气
+     *
+     * @return
+     */
+    public static WeatherAPI getWeatherApi() {
+        initOkhttp();
+        if (weatherAPI == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(Constant.HOST)
+                    .client(okHttpClient)
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .addConverterFactory(gsonConverterFactory)
+                    .build();
+            weatherAPI = retrofit.create(WeatherAPI.class);
+        }
+        return weatherAPI;
+    }
+
 
 
 }

@@ -22,11 +22,6 @@ import com.example.sxj52.lifeassistant.utils.GlideCircleTransform;
 
 import java.util.List;
 
-
-/**
- * Created by zhihao.wen on 2016/11/3.
- */
-
 public class ImageJokeAdapter extends BaseAdapter {
     private List<NewsEntity> newsEntities ;
     private Context ctx ;
