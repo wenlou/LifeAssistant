@@ -1,7 +1,9 @@
 package com.example.sxj52.lifeassistant.ui.activity.fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,15 +19,24 @@ import com.example.sxj52.lifeassistant.entity.NewsEntity;
 import com.example.sxj52.lifeassistant.entity.WeatherEntity;
 import com.example.sxj52.lifeassistant.http.NetWorkUtil;
 import com.example.sxj52.lifeassistant.http.RequestParam;
+import com.example.sxj52.lifeassistant.service.AutoUpdateService;
+import com.example.sxj52.lifeassistant.ui.activity.MainActivity;
+import com.example.sxj52.lifeassistant.utils.ACache;
 import com.example.sxj52.lifeassistant.utils.Constant;
+import com.example.sxj52.lifeassistant.utils.HttpUtil;
 import com.example.sxj52.lifeassistant.view.listview.CustomPtrFrameLayout;
 import com.example.sxj52.lifeassistant.view.listview.LoadMoreListView;
 import com.example.sxj52.lifeassistant.view.listview.PtrDefaultHandler;
 import com.example.sxj52.lifeassistant.view.listview.PtrFrameLayout;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -43,6 +54,7 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
     private WeatherEntity weatherEntity1;
     private ArrayList<WeatherEntity> weatherEntities;
     private Observer<WeatherEntity> obXW;
+    private ACache aCache;
 
     @Nullable
     @Override
@@ -51,13 +63,11 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
         setContentView(R.layout.fragment_weather);
         initData();
         initView();
-       // initData();
         return getContentView();
     }
 
     private void initData() {
         obXW = new Observer<WeatherEntity>() {
-
             @Override
             public void onCompleted() {
 
@@ -65,20 +75,38 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
 
             @Override
             public void onError(Throwable e) {
-                Log.d("tttt",e.getMessage());
                 showErrorView("数据加载失败,点击重试", R.drawable.ic_error);
             }
 
             @Override
             public void onNext(WeatherEntity weatherEntity) {
+                weatherEntities.clear();
                  weatherEntities.add(weatherEntity);
-                adapter.notifyDataSetChanged();
-                customPtrFrameLayout.refreshComplete();
-                listView.getMoreComplete();
-                showContentView();
-                Log.e("main", "===" + weatherEntity.getHeWeather5().get(0).toString());
+                 adapter.notifyDataSetChanged();
+                 customPtrFrameLayout.refreshComplete();
+                 listView.getMoreComplete();
+                 showContentView();
             }
         };
+        WeatherEntity weatherEntity1 = null;
+        try {
+            weatherEntity1=(WeatherEntity) aCache.getAsObject("WeatherData");
+        } catch (Exception e) {
+
+        }
+        if(weatherEntity1!=null) {
+            request(false);
+           sb= Observable.just(weatherEntity1).subscribe(obXW);
+        }
+
+        else{
+            request(true);
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         request(true);
     }
 
@@ -88,19 +116,10 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
         customPtrFrameLayout.setPtrHandler(new PtrDefaultHandler() {
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-//                currentPage=1 ;
                 request(false);
             }
         });
         weatherEntities=new ArrayList<>();
-        //weatherEntity1= new WeatherEntity();
-//        listView.setOnGetMoreListener(new LoadMoreListView.OnGetMoreListener() {
-//            @Override
-//            public void onGetMore() {
-//                currentPage++;
-//                request(false);
-//            }
-//        });
 
         adapter = new WeatherAdapter(getActivity(), weatherEntities);
         listView.setAdapter(adapter);
@@ -113,11 +132,28 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
             showLoadingPage("正在加载中...", R.drawable.ic_loading);
         }
 
+        String requestBingPic = "http://guolin.tech/api/bing_pic";
+        HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String bingPic = response.body().string();
+                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+                editor.putString("bing_pic", bingPic);
+                editor.apply();
+            }
 
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+        });
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String cityName = prefs.getString("city_name", "济南");
+        Log.d("666666",cityName);
         RequestParam param1 = new RequestParam();
-        param1.put("city", "beijing");
+        param1.put("city", cityName);
         param1.put("key", Constant.WKEY);
-        sb = NetWorkUtil.getWeatherApi()
+        NetWorkUtil.getWeatherApi()
                 .mWeatherAPI(param1)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -165,6 +165,7 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
                 dialog.dismiss();
                 if (e == null) {
                     // 注册成功
+                    Toast.makeText(RegestActivity.this,"注册成功，请到邮箱确认",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(RegestActivity.this,LoginActivity.class));
                     finish();
                 } else {

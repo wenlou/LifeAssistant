@@ -1,5 +1,6 @@
 package com.example.sxj52.lifeassistant.ui.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +14,7 @@ import com.avos.avoscloud.SaveCallback;
 import com.bumptech.glide.Glide;
 import com.example.sxj52.lifeassistant.R;
 import com.example.sxj52.lifeassistant.adapter.WeatherAdapter;
+import com.example.sxj52.lifeassistant.service.AutoUpdateService;
 import com.example.sxj52.lifeassistant.ui.activity.fragment.NewsFragment;
 import com.example.sxj52.lifeassistant.ui.activity.fragment.PersonFragment;
 import com.example.sxj52.lifeassistant.ui.activity.fragment.WeatherFragment;
@@ -41,24 +43,10 @@ public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectL
         setContentView(R.layout.activity_tab_main);
         checkUser();
         initView();
+        startService(new Intent(this, AutoUpdateService.class));
     }
 
     private void initView() {
-        String requestBingPic = "http://guolin.tech/api/bing_pic";
-        HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                final String bingPic = response.body().string();
-                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit();
-                editor.putString("bing_pic", bingPic);
-                editor.apply();
-            }
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-        });
         manager = getSupportFragmentManager();
         tb = (BottomTabBar) findViewById(R.id.tb);
         tb.setManager(manager);

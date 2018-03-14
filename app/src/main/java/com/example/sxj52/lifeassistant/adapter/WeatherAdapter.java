@@ -1,6 +1,7 @@
 package com.example.sxj52.lifeassistant.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sxj52.lifeassistant.R;
+import com.example.sxj52.lifeassistant.chat.activity.ChooseareaActivity;
 import com.example.sxj52.lifeassistant.entity.NewsEntity;
 import com.example.sxj52.lifeassistant.entity.WeatherEntity;
 import com.example.sxj52.lifeassistant.ui.activity.MainActivity;
@@ -75,6 +77,7 @@ public class WeatherAdapter extends BaseAdapter {
             holder.comfortText = (TextView) convertView.findViewById(R.id.comfort_text);
             holder.carWashText = (TextView) convertView.findViewById(R.id.car_wash_text);
             holder.sportText = (TextView) convertView.findViewById(R.id.sport_text);
+            holder.navButton=convertView.findViewById(R.id.nav_button);
 
             convertView.setTag(holder);
         }else {
@@ -89,6 +92,13 @@ public class WeatherAdapter extends BaseAdapter {
         holder.degreeText.setText(degree);
         holder.weatherInfoText.setText(weatherInfo);
         holder.forecastLayout.removeAllViews();
+        holder.navButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent=new Intent(ctx,ChooseareaActivity.class);
+               ctx.startActivity(intent);
+            }
+        });
         for (WeatherEntity.HeWeather5Bean.DailyForecastBean forecast : weatherEntity.getHeWeather5().get(0).getDailyForecast()) {
             View view = LayoutInflater.from(ctx).inflate(R.layout.forecast_item, holder.forecastLayout, false);
             TextView dateText = (TextView) view.findViewById(R.id.date_text);
@@ -144,6 +154,8 @@ public class WeatherAdapter extends BaseAdapter {
         private TextView sportText;
 
         private ImageView bingPicImg;
+
+        private Button navButton;
 
     }
 

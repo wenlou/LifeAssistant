@@ -4,13 +4,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    android:fitsSystemWindows="true">
+    android:background="@color/white"
+   >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:background="@color/colorAccent">
 
         <TextView
             android:id="@+id/title_text"
@@ -32,6 +33,7 @@
 
     <ListView
         android:id="@+id/list_view"
+        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
