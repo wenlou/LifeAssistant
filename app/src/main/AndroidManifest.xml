@@ -84,9 +84,16 @@
             android:enabled="true"
             android:exported="true" />
 
+        <service android:name=".service.MusicService" />
+
         <activity android:name=".chat.activity.ChooseareaActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
+
+        <activity android:name=".chat.activity.MusicActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
 
     </application>
 

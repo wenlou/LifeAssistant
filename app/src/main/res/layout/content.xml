@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.sxj52.lifeassistant.ui.activity.view.RoundImageView
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_head"
+            app:border_color="@color/colorAccent"
+            app:border_width="1dp"
+            app:type="circle" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewSong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="#d7ded0d0"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewSinger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewSong"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textColor="#9cffffff"
+            android:textSize="15sp" />
+
+        <com.example.sxj52.lifeassistant.ui.activity.view.LrcView
+            android:id="@+id/lrc"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            app:lrcAnimationDuration="600"
+            app:lrcCurrentTextColor="?attr/colorAccent"
+            app:lrcDividerHeight="12dp"
+            app:lrcLabel="找不到歌词(&gt;_&lt;)"
+            app:lrcNormalTextColor="@android:color/white"
+            app:lrcPadding="50dp"
+            app:lrcTextSize="14sp" />
+
+        <com.example.musicview.MusicPlayerView
+            android:id="@+id/mpv"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_below="@+id/lrc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            app:buttonColor="@color/colorAccent"
+            app:progressLoadedColor="@color/colorAccent"
+            app:textColor="#80FFFFFF"
+            app:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/play_mode"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/mpv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/player_btn_mode_playall_normal" />
+
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignRight="@+id/mpv"
+            android:layout_below="@+id/mpv"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/player_icon_next" />
+
+        <ImageView
+            android:id="@+id/previous"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignLeft="@+id/mpv"
+            android:layout_below="@+id/mpv"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/player_icon_previous" />
+
+    </RelativeLayout>
+
+</LinearLayout>

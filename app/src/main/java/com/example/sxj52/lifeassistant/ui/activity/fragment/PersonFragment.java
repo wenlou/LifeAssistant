@@ -21,6 +21,7 @@ import com.avos.avoscloud.GetCallback;
 import com.bumptech.glide.Glide;
 import com.example.sxj52.lifeassistant.R;
 import com.example.sxj52.lifeassistant.chat.activity.LoginActivity;
+import com.example.sxj52.lifeassistant.chat.activity.MusicActivity;
 import com.example.sxj52.lifeassistant.chat.activity.SuggestActivity;
 import com.example.sxj52.lifeassistant.event.LoginSuccessdEvent;
 import com.example.sxj52.lifeassistant.utils.DataCleanManager;
@@ -45,6 +46,7 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
     private TextView cacheSizeTv ;
     private String cacheSize ;
     private TextView versionCode ;
+    private TextView musicpaly;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,9 +66,11 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
         versionCode = (TextView) findViewById(R.id.versionCode);
         versionCode.setText("V "+getVersion());
         cacheSizeTv = (TextView) findViewById(R.id.cacheSize);
+        musicpaly=(TextView)findViewById(R.id.music);
         refreshCache();
         findViewById(R.id.clear_cache).setOnClickListener(this);
         findViewById(R.id.suggest).setOnClickListener(this);
+        findViewById(R.id.music).setOnClickListener(this);
         nameView = (TextView) findViewById(R.id.nameView);
         avatar = (ImageView) findViewById(R.id.avatar);
         avatar.setOnClickListener(this);
@@ -150,6 +154,9 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
 
         }else if (v.getId()==R.id.suggest){
             startActivity(new Intent(getActivity(), SuggestActivity.class));
+        }
+        else if (v.getId()==R.id.music){
+            startActivity(new Intent(getActivity(), MusicActivity.class));
         }
     }
     @Subscribe

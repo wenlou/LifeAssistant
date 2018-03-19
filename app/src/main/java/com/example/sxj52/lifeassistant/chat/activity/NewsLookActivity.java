@@ -39,9 +39,9 @@ public class NewsLookActivity extends BaseActivity {
 
     private void initView() {
         webView = (WebView) findViewById(R.id.webview);
-        tv_title=findViewById(R.id.tv_title);
-        iv_name=findViewById(R.id.iv_name);
-        iv_time=findViewById(R.id.iv_time);
+        tv_title=(TextView) findViewById(R.id.tv_title);
+        iv_name=(TextView)findViewById(R.id.iv_name);
+        iv_time=(TextView)findViewById(R.id.iv_time);
         tv_title.setText(newsbean.getTitle());
         iv_name.setText(newsbean.getAuthor_name());
         iv_time.setText(newsbean.getDate());

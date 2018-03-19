@@ -145,6 +145,19 @@
                 android:text="意见反馈" />
 
             <include layout="@layout/common_line" />
+            <TextView
+                android:id="@+id/music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableLeft="@drawable/suggest"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/ic_right_arrow"
+                android:gravity="center|left"
+                android:padding="16dp"
+                android:text="音乐播放" />
+
+            <include layout="@layout/common_line" />
 
             <TextView
                 android:id="@+id/about"
@@ -157,6 +170,7 @@
                 android:gravity="center|left"
                 android:padding="16dp"
                 android:text="关于" />
+
 
         </LinearLayout>
     </com.example.sxj52.lifeassistant.view.ObservableScrollView>

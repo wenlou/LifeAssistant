@@ -177,11 +177,11 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void initView() {
-        username =  findViewById(R.id.username);
-        password =  findViewById(R.id.password);
-        passwordConfirm =  findViewById(R.id.passwordConfirm);
-        email=findViewById(R.id.email);
-        imageView = findViewById(R.id.image);
+        username =  (EditText) findViewById(R.id.username);
+        password =  (EditText)findViewById(R.id.password);
+        passwordConfirm =  (EditText)findViewById(R.id.passwordConfirm);
+        email=(EditText)findViewById(R.id.email);
+        imageView = (ImageView) findViewById(R.id.image);
         imageView.setOnClickListener(this);
         findViewById(R.id.register).setOnClickListener(this);
         dialog = new LoadingDialog(this);

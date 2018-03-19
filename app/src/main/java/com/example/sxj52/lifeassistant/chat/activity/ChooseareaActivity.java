@@ -90,9 +90,9 @@ public class ChooseareaActivity extends AppCompatActivity {
     }
 
     private void initview() {
-        titleText =  findViewById(R.id.title_text);
-        backButton = findViewById(R.id.back_button);
-        listView =  findViewById(R.id.list_view);
+        titleText =  (TextView)findViewById(R.id.title_text);
+        backButton = (Button) findViewById(R.id.back_button);
+        listView =  (ListView) findViewById(R.id.list_view);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, dataList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

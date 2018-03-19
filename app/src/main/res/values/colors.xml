@@ -16,4 +16,9 @@
     <color name="status_like_pink">#ff6868</color>
 
     <color name="news_tv_source_color">#a3a3a3</color>
+
+    <color name="colorNormal">#abbbbb</color>
+
+
+    <color name="coloBGNormal">#25272d</color>
 </resources>

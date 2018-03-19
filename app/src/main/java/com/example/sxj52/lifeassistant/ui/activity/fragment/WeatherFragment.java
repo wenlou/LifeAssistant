@@ -149,7 +149,6 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
         });
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String cityName = prefs.getString("city_name", "济南");
-        Log.d("666666",cityName);
         RequestParam param1 = new RequestParam();
         param1.put("city", cityName);
         param1.put("key", Constant.WKEY);

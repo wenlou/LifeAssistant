@@ -77,7 +77,7 @@ public class WeatherAdapter extends BaseAdapter {
             holder.comfortText = (TextView) convertView.findViewById(R.id.comfort_text);
             holder.carWashText = (TextView) convertView.findViewById(R.id.car_wash_text);
             holder.sportText = (TextView) convertView.findViewById(R.id.sport_text);
-            holder.navButton=convertView.findViewById(R.id.nav_button);
+            holder.navButton=(Button) convertView.findViewById(R.id.nav_button);
 
             convertView.setTag(holder);
         }else {
