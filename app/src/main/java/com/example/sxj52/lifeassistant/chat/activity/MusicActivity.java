@@ -339,10 +339,6 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
      */
     @SuppressLint("NewApi")
     private void createNotification() {
-
-
-
-        Log.d("88888899766","start");
         mBuilder = new NotificationCompat.Builder(this);
         // 点击跳转到主界面
         Intent intent_main = new Intent(this, MusicActivity.class);
@@ -384,11 +380,9 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         intent_next.setAction(Constants.ACTION_NEXT);
         PendingIntent pending_intent_next = PendingIntent.getBroadcast(this, 6, intent_next, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.widget_next, pending_intent_next);
-
         mBuilder.setSmallIcon(R.drawable.default_head); // 设置顶部图标（状态栏）
         mBuilder.setContent(remoteViews);
         mBuilder.setOngoing(true);
-        Log.d("9999",mBuilder.toString());
     }
 
     private void initEvent() {
