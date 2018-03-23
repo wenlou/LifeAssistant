@@ -1,10 +1,13 @@
 package com.example.sxj52.lifeassistant.chat.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -17,10 +20,12 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SignUpCallback;
+import com.baidu.mapapi.SDKInitializer;
 import com.bumptech.glide.Glide;
 import com.example.sxj52.lifeassistant.R;
 import com.example.sxj52.lifeassistant.event.LoginSuccessdEvent;
 import com.example.sxj52.lifeassistant.ui.activity.BaseActivity;
+import com.example.sxj52.lifeassistant.ui.activity.MainActivity;
 import com.example.sxj52.lifeassistant.utils.GlideCircleTransform;
 import com.example.sxj52.lifeassistant.utils.PermissionUtils;
 import com.example.sxj52.lifeassistant.view.LoadingDialog;
@@ -31,6 +36,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
 import me.iwf.photopicker.PhotoPickerActivity;
 import me.iwf.photopicker.utils.PhotoPickerIntent;
@@ -58,40 +64,34 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
         setTitle("新用户注册");
         initView();
     }
-    private PermissionUtils.PermissionGrant mPermissionGrant = new PermissionUtils.PermissionGrant() {
-        @Override
-        public void onPermissionGranted(int requestCode) {
-            switch (requestCode) {
-                case PermissionUtils.CODE_CAMERA:
-                    Toast.makeText(RegestActivity.this, "Result Permission Grant CODE_CAMERA", Toast.LENGTH_SHORT).show();
-                    break;
-                case PermissionUtils.CODE_READ_EXTERNAL_STORAGE:
-                    Toast.makeText(RegestActivity.this, "Result Permission Grant CODE_READ_EXTERNAL_STORAGE", Toast.LENGTH_SHORT).show();
-                    break;
-                case PermissionUtils.CODE_WRITE_EXTERNAL_STORAGE:
-                    Toast.makeText(RegestActivity.this, "Result Permission Grant CODE_WRITE_EXTERNAL_STORAGE", Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    break;
-            }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case 1:
+                if (grantResults.length > 0) {
+                    for (int result : grantResults) {
+                        if (result != PackageManager.PERMISSION_GRANTED) {
+                            Toast.makeText(this, "必须同意所有权限才能使用本程序", Toast.LENGTH_SHORT).show();
+                            finish();
+                            return;
+                        }
+                    }
+                    upload();
+                } else {
+                    Toast.makeText(this, "发生未知错误", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                break;
+            default:
         }
-    };
+    }
     private void upload() {
-        PermissionUtils.requestPermission(this, PermissionUtils.CODE_CAMERA, mPermissionGrant);
         PhotoPickerIntent intent = new PhotoPickerIntent(RegestActivity.this);
         intent.setPhotoCount(9);
         intent.setShowCamera(true);
         startActivityForResult(intent, REQUEST_CODE);
     }
 
-    /**
-     * Callback received when a permissions request has been completed.
-     */
-    @Override
-    public void onRequestPermissionsResult(final int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        PermissionUtils.requestPermissionsResult(this, requestCode, permissions, grantResults, mPermissionGrant);
-    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -211,8 +211,25 @@ public class RegestActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == imageView.getId()) {
-            upload();
+        SDKInitializer.initialize(getApplicationContext());
+        List<String> permissionList = new ArrayList<>();
+        if (ContextCompat.checkSelfPermission(RegestActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.CAMERA);
         }
+        if (ContextCompat.checkSelfPermission(RegestActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_PHONE_STATE);
+        }
+        if (ContextCompat.checkSelfPermission(RegestActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        if (!permissionList.isEmpty()) {
+            String [] permissions = permissionList.toArray(new String[permissionList.size()]);
+            ActivityCompat.requestPermissions(RegestActivity.this, permissions, 1);
+        } else {
+            if (v.getId() == imageView.getId()) {
+                upload();
+            }
+        }
+
     }
 }
