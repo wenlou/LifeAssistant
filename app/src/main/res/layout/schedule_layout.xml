@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+                <com.example.sxj52.lifeassistant.view.SelecteView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/select_view"/>
+                <com.example.sxj52.lifeassistant.view.WeekDataView
+                    android:id="@+id/week_data_view"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/select_view"/>
+                <com.example.sxj52.lifeassistant.view.MonthDataView
+                    android:id="@+id/month_data_view"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_below="@id/week_data_view"/>
+                <com.example.sxj52.lifeassistant.view.RouteShowDeleteView
+                    android:id="@+id/route_show_delect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/month_data_view"/>
+                <ImageView android:id="@+id/add_route_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:clickable="true"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/add_route_selector"
+                    android:src="@mipmap/ic_add"/>
+</RelativeLayout>
+

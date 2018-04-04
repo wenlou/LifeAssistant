@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.example.sxj52.lifeassistant.R;
 import com.example.sxj52.lifeassistant.adapter.ImageJokeAdapter;
@@ -148,7 +149,11 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
             }
         });
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String cityName = prefs.getString("city_name", "历城区");
+        String cityName = prefs.getString("city_name", "");
+        if(cityName.equals("")){
+            Toast.makeText(getContext(),"定位失败，加载默认城市",Toast.LENGTH_SHORT).show();
+            cityName="济南";
+        }
         RequestParam param1 = new RequestParam();
         param1.put("city", cityName);
         param1.put("key", Constant.WKEY);

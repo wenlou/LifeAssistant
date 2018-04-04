@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView android:id="@+id/time_text"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#2b2d30"
+        android:text="2016年12月10日"/>
+    <TextView android:id="@+id/data_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="20sp"
+        android:textColor="#5c5a5a"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/time_text"
+        android:text="这里是我的测试。。。看一下会不会换行.。。。。"/>
+    <TextView android:id="@+id/text_prompt"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="#aeabab"
+        android:layout_marginLeft="15dp"
+        android:text="点击查看详情"
+        android:layout_below="@id/data_text"/>
+
+</RelativeLayout>

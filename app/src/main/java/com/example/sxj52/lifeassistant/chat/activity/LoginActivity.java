@@ -22,9 +22,7 @@ import com.example.sxj52.lifeassistant.view.LoadingDialog;
 import org.greenrobot.eventbus.EventBus;
 
 
-/**
- * Created by zhihao.wen on 2016/11/25.
- */
+
 
 public class LoginActivity extends BaseActivity {
     private static final String TAG = "LoginActivity";

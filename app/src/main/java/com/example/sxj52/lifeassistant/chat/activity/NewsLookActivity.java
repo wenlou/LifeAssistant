@@ -14,12 +14,6 @@ import com.example.sxj52.lifeassistant.entity.NewsEntity;
 import com.example.sxj52.lifeassistant.ui.activity.BaseActivity;
 
 
-/**
- * author：Administrator on 2016/12/19 17:25
- * e-mail：wenzh@bbtree.com
- * description:文件说明
- * version:版本
- */
 public class NewsLookActivity extends BaseActivity {
     private static String url = "";
     private static NewsEntity newsbean;

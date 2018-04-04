@@ -104,6 +104,8 @@
 
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
         </service>
+        <activity android:launchMode="singleTop"
+            android:name=".chat.activity.ADDDouteActivity"/>
     </application>
 
 </manifest>

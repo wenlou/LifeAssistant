@@ -45,7 +45,6 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
     private ImageView avatar ;
     private TextView cacheSizeTv ;
     private String cacheSize ;
-    private TextView versionCode ;
     private TextView musicpaly;
     @Nullable
     @Override
@@ -63,8 +62,6 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
         loginOut =  findViewById(R.id.login_out) ;
         loginOut.setOnClickListener(this);
 
-        versionCode = (TextView) findViewById(R.id.versionCode);
-        versionCode.setText("V "+getVersion());
         cacheSizeTv = (TextView) findViewById(R.id.cacheSize);
         musicpaly=(TextView)findViewById(R.id.music);
         refreshCache();

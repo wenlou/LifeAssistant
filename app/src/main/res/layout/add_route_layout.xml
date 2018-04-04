@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView android:id="@+id/scrall_view"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <RelativeLayout android:id="@+id/relative_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TimePicker
+                android:id="@+id/time_pick"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:timePickerMode="spinner"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2d2626"
+                android:layout_above="@id/time_pick"
+                android:text="请选择您的闹钟时间:"/>
+            <EditText android:id="@+id/route_data_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time_pick"
+                android:layout_margin="10dp"
+                android:text="请输入您的行程..."
+                android:gravity="top"
+                android:minHeight="100dp"/>
+            <LinearLayout android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_below="@id/route_data_text"
+                android:orientation="horizontal">
+                <Button android:id="@+id/no_button"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="取 消"
+                    android:layout_weight="1"/>
+                <Button android:id="@+id/yes_button"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="确 定"
+                    android:layout_weight="1"/>
+                </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

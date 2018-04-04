@@ -102,33 +102,6 @@
 
             <include layout="@layout/common_line" />
 
-            <FrameLayout
-                android:id="@+id/version"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/version"
-                    android:drawablePadding="5dp"
-                    android:drawableRight="@drawable/ic_right_arrow"
-                    android:gravity="center|left"
-                    android:padding="16dp"
-                    android:text="版本更新" />
-
-                <TextView
-                    android:id="@+id/versionCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="clip_vertical|right"
-                    android:layout_marginRight="40dp"
-                    android:gravity="center"
-                    android:text="@null"
-                    android:textColor="@color/font_color" />
-            </FrameLayout>
 
             <include layout="@layout/common_line" />
 
@@ -150,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/suggest"
+                android:drawableLeft="@drawable/music_paly"
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/ic_right_arrow"
                 android:gravity="center|left"
