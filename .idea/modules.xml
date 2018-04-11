@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LifeAssistant.iml" filepath="$PROJECT_DIR$/LifeAssistant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alarmmanagerclock/alarmmanagerclock.iml" filepath="$PROJECT_DIR$/alarmmanagerclock/alarmmanagerclock.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/musicview/musicview.iml" filepath="$PROJECT_DIR$/musicview/musicview.iml" />
     </modules>

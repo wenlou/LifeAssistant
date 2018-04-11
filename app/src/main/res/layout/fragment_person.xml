@@ -133,16 +133,29 @@
             <include layout="@layout/common_line" />
 
             <TextView
-                android:id="@+id/about"
+                android:id="@+id/color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/about"
+                android:drawableLeft="@drawable/color"
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/ic_right_arrow"
                 android:gravity="center|left"
                 android:padding="16dp"
-                android:text="关于" />
+                android:text="闹钟" />
+            <include layout="@layout/common_line" />
+
+            <TextView
+                android:id="@+id/stopwatch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableLeft="@drawable/stopwatch"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/ic_right_arrow"
+                android:gravity="center|left"
+                android:padding="16dp"
+                android:text="秒表" />
 
 
         </LinearLayout>

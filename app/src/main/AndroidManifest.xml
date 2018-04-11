@@ -106,6 +106,8 @@
         </service>
         <activity android:launchMode="singleTop"
             android:name=".chat.activity.ADDDouteActivity"/>
+        <activity android:name=".chat.activity.ColorActivity"/>
+        <activity android:name=".chat.activity.StopWatchActivity"/>
     </application>
 
 </manifest>

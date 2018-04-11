@@ -20,8 +20,10 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.GetCallback;
 import com.bumptech.glide.Glide;
 import com.example.sxj52.lifeassistant.R;
+import com.example.sxj52.lifeassistant.chat.activity.ColorActivity;
 import com.example.sxj52.lifeassistant.chat.activity.LoginActivity;
 import com.example.sxj52.lifeassistant.chat.activity.MusicActivity;
+import com.example.sxj52.lifeassistant.chat.activity.StopWatchActivity;
 import com.example.sxj52.lifeassistant.chat.activity.SuggestActivity;
 import com.example.sxj52.lifeassistant.event.LoginSuccessdEvent;
 import com.example.sxj52.lifeassistant.utils.DataCleanManager;
@@ -61,17 +63,17 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
         dialog = new ShowDialog();
         loginOut =  findViewById(R.id.login_out) ;
         loginOut.setOnClickListener(this);
-
         cacheSizeTv = (TextView) findViewById(R.id.cacheSize);
         musicpaly=(TextView)findViewById(R.id.music);
         refreshCache();
         findViewById(R.id.clear_cache).setOnClickListener(this);
         findViewById(R.id.suggest).setOnClickListener(this);
         findViewById(R.id.music).setOnClickListener(this);
+        findViewById(R.id.color).setOnClickListener(this);
+        findViewById(R.id.stopwatch).setOnClickListener(this);
         nameView = (TextView) findViewById(R.id.nameView);
         avatar = (ImageView) findViewById(R.id.avatar);
         avatar.setOnClickListener(this);
-
         checkUser();
     }
 
@@ -154,6 +156,12 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
         }
         else if (v.getId()==R.id.music){
             startActivity(new Intent(getActivity(), MusicActivity.class));
+        }
+        else if (v.getId()==R.id.stopwatch){
+            startActivity(new Intent(getActivity(), StopWatchActivity.class));
+        }
+        else if (v.getId()==R.id.color){
+            startActivity(new Intent(getActivity(), ColorActivity.class));
         }
     }
     @Subscribe
