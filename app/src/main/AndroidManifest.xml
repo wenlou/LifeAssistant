@@ -108,6 +108,9 @@
             android:name=".chat.activity.ADDDouteActivity"/>
         <activity android:name=".chat.activity.ColorActivity"/>
         <activity android:name=".chat.activity.StopWatchActivity"/>
+        <activity
+            android:name=".chat.activity.MapActivity"
+             />
     </application>
 
 </manifest>

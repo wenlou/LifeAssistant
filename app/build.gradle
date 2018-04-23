@@ -72,6 +72,7 @@ dependencies {
     // LeanCloud 应用内搜索包
     compile('cn.leancloud.android:avoscloud-search:v4.6.4@aar')
     compile 'com.android.support:palette-v7:26.1.0'
+    compile 'com.github.arimorty:floatingsearchview:2.0.1'
     compile project(':musicview')
     compile project(':alarmmanagerclock')
 }

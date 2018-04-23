@@ -13,15 +13,10 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.example.sxj52.lifeassistant.R;
-import com.example.sxj52.lifeassistant.adapter.ImageJokeAdapter;
 import com.example.sxj52.lifeassistant.adapter.WeatherAdapter;
-import com.example.sxj52.lifeassistant.chat.activity.NewsLookActivity;
-import com.example.sxj52.lifeassistant.entity.NewsEntity;
 import com.example.sxj52.lifeassistant.entity.WeatherEntity;
 import com.example.sxj52.lifeassistant.http.NetWorkUtil;
 import com.example.sxj52.lifeassistant.http.RequestParam;
-import com.example.sxj52.lifeassistant.service.AutoUpdateService;
-import com.example.sxj52.lifeassistant.ui.activity.MainActivity;
 import com.example.sxj52.lifeassistant.utils.ACache;
 import com.example.sxj52.lifeassistant.utils.Constant;
 import com.example.sxj52.lifeassistant.utils.HttpUtil;

@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.sxj52.lifeassistant.R;
 import com.example.sxj52.lifeassistant.chat.activity.ColorActivity;
 import com.example.sxj52.lifeassistant.chat.activity.LoginActivity;
+import com.example.sxj52.lifeassistant.chat.activity.MapActivity;
 import com.example.sxj52.lifeassistant.chat.activity.MusicActivity;
 import com.example.sxj52.lifeassistant.chat.activity.StopWatchActivity;
 import com.example.sxj52.lifeassistant.chat.activity.SuggestActivity;
@@ -152,7 +153,7 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
             });
 
         }else if (v.getId()==R.id.suggest){
-            startActivity(new Intent(getActivity(), SuggestActivity.class));
+            startActivity(new Intent(getActivity(), MapActivity.class));
         }
         else if (v.getId()==R.id.music){
             startActivity(new Intent(getActivity(), MusicActivity.class));

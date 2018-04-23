@@ -36,13 +36,14 @@ import com.example.sxj52.lifeassistant.utils.HttpUtil;
 import com.example.sxj52.lifeassistant.view.tab.BarEntity;
 import com.example.sxj52.lifeassistant.view.tab.BottomTabBar;
 
+
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
+
 
 public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectListener{
     private BottomTabBar tb ;
