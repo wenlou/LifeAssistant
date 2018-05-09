@@ -93,6 +93,7 @@ public class MainActivity extends BaseActivity implements BottomTabBar.OnSelectL
         bars.add(new BarEntity("天气",R.drawable.tianqi_1,R.drawable.tianqi));
         bars.add(new BarEntity("日程提醒",R.drawable.rl1,R.drawable.rl));
         bars.add(new BarEntity("个人",R.drawable.ic_my_select,R.drawable.ic_my_unselect));
+
         tb.setBars(bars);
     }
 

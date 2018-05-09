@@ -26,6 +26,7 @@ import com.example.sxj52.lifeassistant.chat.activity.MapActivity;
 import com.example.sxj52.lifeassistant.chat.activity.MusicActivity;
 import com.example.sxj52.lifeassistant.chat.activity.StopWatchActivity;
 import com.example.sxj52.lifeassistant.chat.activity.SuggestActivity;
+import com.example.sxj52.lifeassistant.chat.activity.ToolsActivity;
 import com.example.sxj52.lifeassistant.event.LoginSuccessdEvent;
 import com.example.sxj52.lifeassistant.utils.DataCleanManager;
 import com.example.sxj52.lifeassistant.view.ShowDialog;
@@ -48,7 +49,6 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
     private ImageView avatar ;
     private TextView cacheSizeTv ;
     private String cacheSize ;
-    private TextView musicpaly;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,59 +65,22 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
         loginOut =  findViewById(R.id.login_out) ;
         loginOut.setOnClickListener(this);
         cacheSizeTv = (TextView) findViewById(R.id.cacheSize);
-        musicpaly=(TextView)findViewById(R.id.music);
         refreshCache();
         findViewById(R.id.clear_cache).setOnClickListener(this);
         findViewById(R.id.suggest).setOnClickListener(this);
-        findViewById(R.id.music).setOnClickListener(this);
-        findViewById(R.id.color).setOnClickListener(this);
-        findViewById(R.id.stopwatch).setOnClickListener(this);
+        findViewById(R.id.tools).setOnClickListener(this);
         nameView = (TextView) findViewById(R.id.nameView);
         avatar = (ImageView) findViewById(R.id.avatar);
         avatar.setOnClickListener(this);
         checkUser();
     }
 
-//    private void initData() {
-//        if (AVUser.getCurrentUser()==null){
-//            showLoginView();
-//            return;
-//        }
-//        obXW = new Observer<ApiResponseWraperNoList<WeatherEntity>>() {
-//            @Override
-//            public void onCompleted() {
-//
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//                showErrorView("数据加载失败,点击重试",R.drawable.ic_error);
-//            }
-//
-//            @Override
-//            public void onNext(ApiResponseWraperNoList<WeatherEntity> xwEntity) {
-//                showContentView();
-//                Log.e("main","==="+xwEntity.getResult().toString());
-//                Log.d("2222",xwEntity.toString());
-//
-//            }
-//        };
-//        request(true);
-//    }
 
     @Override
     public void request(boolean isRefresh) {
         if (isRefresh){
             showLoadingPage("正在加载中...",R.drawable.ic_loading);
         }
-//        RequestParam param = new RequestParam();
-//        param.put("key", Constant.WKEY);
-//        param.put("cityname","北京");
-//        sb = NetWorkUtil.getWeatherApi()
-//                .getWeather(param)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(obXW);
     }
 
     @Override
@@ -153,17 +116,12 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
             });
 
         }else if (v.getId()==R.id.suggest){
-            startActivity(new Intent(getActivity(), MapActivity.class));
+            startActivity(new Intent(getActivity(), SuggestActivity.class));
         }
-        else if (v.getId()==R.id.music){
-            startActivity(new Intent(getActivity(), MusicActivity.class));
+        else if (v.getId()==R.id.tools){
+            startActivity(new Intent(getActivity(), ToolsActivity.class));
         }
-        else if (v.getId()==R.id.stopwatch){
-            startActivity(new Intent(getActivity(), StopWatchActivity.class));
-        }
-        else if (v.getId()==R.id.color){
-            startActivity(new Intent(getActivity(), ColorActivity.class));
-        }
+
     }
     @Subscribe
     public  void onEventMainThread(LoginSuccessdEvent event){
@@ -214,23 +172,6 @@ public class PersonFragment extends BaseFragment implements BaseFragment.OnReloa
             e.printStackTrace();
         }
     }
-    /**
-     * 获取版本号
-     *
-     * @return 当前应用的版本号
-     */
-    public String getVersion() {
-        try {
-            PackageManager manager = getActivity().getPackageManager();
-            PackageInfo info = manager.getPackageInfo(getActivity().getPackageName(), 0);
-            String version = info.versionName;
-            return version;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
-
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);

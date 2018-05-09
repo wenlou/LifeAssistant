@@ -111,6 +111,7 @@
         <activity
             android:name=".chat.activity.MapActivity"
              />
+        <activity android:name=".chat.activity.ToolsActivity"/>
     </application>
 
 </manifest>

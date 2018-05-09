@@ -70,12 +70,6 @@ public class MapActivity extends AppCompatActivity {
         //SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_map);
 
-        //初始化toolbar
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        final ActionBar ab = getSupportActionBar();
-//        //ab.setHomeAsUpIndicator(R.drawable.ic_menu);
-//        ab.setDisplayHomeAsUpEnabled(true);
 
         rl_marker = (RelativeLayout)findViewById(R.id.rl_marker);
         mLocationView = (TextView) findViewById(R.id.my_location);
