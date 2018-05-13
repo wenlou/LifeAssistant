@@ -56,9 +56,9 @@
 - PhotoPicker图片选择器;
 
 - 自定义加载对话框及提示框等等;
- 
+
   ### Rxjava 简介
-  ![][readme-rxjava]
+ [参考这篇文章][7]
 
   ### Retrofit 简介
 
@@ -118,5 +118,5 @@
 [image-3]:	/images/3.png
 [image-4]:	/images/4.png
 [image-5]:	/images/5.png
-[readme-rxjava]: /RxJava 的简单分享.md
+[7]: /RxJava 的简单分享.md
 
