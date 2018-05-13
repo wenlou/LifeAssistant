@@ -58,7 +58,7 @@
 - 自定义加载对话框及提示框等等;
 
   ### Rxjava 简介
-   [参考这篇文章][7]
+  [参考这篇文章][7]
 
   ### Retrofit 简介
 
@@ -118,5 +118,5 @@
 [image-3]:	/images/3.png
 [image-4]:	/images/4.png
 [image-5]:	/images/5.png
-[7]:  /RxJava 的简单分享.md
+[7]:  https://github.com/wenlou/LifeAssistant/blob/master/RxJava%20的简单分享.md
 
