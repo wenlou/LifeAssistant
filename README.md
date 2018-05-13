@@ -14,7 +14,7 @@
  - [x] 缓存数据，减少网络请求，保证离线查看
  - [x] 时钟以及秒表功能
  - [x] 附近美食展示
- - [x] 美食评论功能
+ - [ ] 美食评论功能
  - [x] 日程提醒
 
 ---
@@ -46,11 +46,32 @@
 
 ### 主要技术
 - Base基础类的封装，toolbar封装，错误页面及加载页面，未登录页面封装；
+
 - Rxjava + Retrofit + Okhttp 封装网络请求 ;
+
 - leancloud用户管理系统及动态管理系统;
+
 - eventBus事件总线的使用;
+
 - PhotoPicker图片选择器;
+
 - 自定义加载对话框及提示框等等;
+ 
+  ### Rxjava 简介
+  ![][readme-rxjava]
+
+  ### Retrofit 简介
+
+  Retrofit 源码开头的解释
+
+  ```c
+  * Retrofit adapts a Java interface to HTTP calls by using annotations on the declared methods to
+  * define how requests are made. Create instances using {@linkplain Builder
+  * the builder} and pass your interface to {@link #create} to generate an implementation.
+  ```
+
+  Retrofit 利用方法上的注解将接口转化成一个 HTTP 请求。
+
 
 #### 公开 API
 
@@ -97,4 +118,5 @@
 [image-3]:	/images/3.png
 [image-4]:	/images/4.png
 [image-5]:	/images/5.png
+[readme-rxjava]: /RxJava 的简单分享.md
 
