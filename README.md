@@ -1,4 +1,4 @@
-# 毕业设计—生活助手（Rxjva+RxAndroid+Retrofit）
+# 毕业设计—基于Android的掌上生活系统——移动客户端系统设计与实现 （Rxjva+RxAndroid+Retrofit）
 
 ----
 
