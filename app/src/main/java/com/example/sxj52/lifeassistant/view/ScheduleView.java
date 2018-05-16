@@ -21,9 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 
-/**
- * Created by sy on 2016/9/8.
- */
+
 public class ScheduleView extends LinearLayout
         implements SelecteView.OnSetChangeListener
         ,MonthDataView.OnDaySelectListener

@@ -9,9 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by sy on 2016/9/12.
- */
+
 public class FileTool {
 
     private static final String Filename = "myschdule.route";

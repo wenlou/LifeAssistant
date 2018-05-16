@@ -1,8 +1,6 @@
 package com.example.sxj52.lifeassistant.view;
 
-/**
- * Created by WZH on 2016/12/12.
- */
+
 
 import android.app.Dialog;
 import android.content.Context;

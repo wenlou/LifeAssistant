@@ -16,9 +16,7 @@ import java.util.Date;
 
 
 
-/**
- * Created by sy on 2016/9/7.
-*/
+
 public class MonthDataView extends RelativeLayout implements GridView.OnItemClickListener{
 
     GridView mGridView;

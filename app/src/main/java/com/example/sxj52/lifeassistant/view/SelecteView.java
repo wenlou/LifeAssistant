@@ -18,9 +18,7 @@ import java.util.Date;
 
 
 
-/**
- * Created by sy on 2016/9/8.
- */
+
 public class SelecteView extends LinearLayout implements View.OnClickListener {
     private View view;
     private ImageView addImage;

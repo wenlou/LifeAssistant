@@ -36,9 +36,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 
-/**
- * Created by WZH on 2016/11/4.
- */
+
 
 public class ScheduleFragment extends BaseFragment{
     private static String yearKey  = "year";

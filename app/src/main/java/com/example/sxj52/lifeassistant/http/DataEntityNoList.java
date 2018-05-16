@@ -5,9 +5,7 @@ import com.example.sxj52.lifeassistant.entity.NewsEntity;
 import com.google.gson.annotations.SerializedName;
 
 
-/**
- * Created by zhihao.wen on 2016/11/3.
- */
+
 
 public class DataEntityNoList<T> extends BaseEntity {
     @SerializedName("data")

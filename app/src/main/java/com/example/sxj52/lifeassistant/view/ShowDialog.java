@@ -2,9 +2,7 @@ package com.example.sxj52.lifeassistant.view;
 
 import android.content.Context;
 
-/**
- * Created by WZH on 2016/12/11.
- */
+
 
 public class ShowDialog {
     private CustomDialog selfDialog ;

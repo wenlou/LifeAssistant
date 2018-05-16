@@ -2,9 +2,7 @@ package com.example.sxj52.lifeassistant.utils;
 
 import java.io.Serializable;
 
-/**
- * Created by sy on 2016/9/12.
- */
+
 public class Info implements Serializable {
 
     int year= -1 ;int month=-1; int day=-1;

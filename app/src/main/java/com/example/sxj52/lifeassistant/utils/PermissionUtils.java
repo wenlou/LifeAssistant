@@ -20,9 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by qianxiaoai on 2016/7/7.
- */
+
 public class PermissionUtils {
 
     private static final String TAG = PermissionUtils.class.getSimpleName();

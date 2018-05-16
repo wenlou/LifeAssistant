@@ -32,9 +32,7 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-/**
- * Created by zhihao.wen on 2016/11/3.
- */
+
 
 public class NewsFragment extends BaseFragment implements BaseFragment.OnReloadDataListener{
     private CustomPtrFrameLayout customPtrFrameLayout ;

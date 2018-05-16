@@ -1,8 +1,6 @@
 package com.example.sxj52.lifeassistant.utils;
 
-/**
- * Created by zhihao.wen on 2016/11/3.
- */
+
 
 public class Constant {
     public static String BASE_URL = "http://v.juhe.cn/" ;

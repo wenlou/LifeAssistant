@@ -1,8 +1,6 @@
 package com.example.sxj52.lifeassistant.utils;
 
-/**
- * Created by sy on 2016/9/13.
- */
+
 public class ChangeTool {
 
     public static int changeToInt(String data){

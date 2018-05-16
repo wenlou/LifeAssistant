@@ -12,9 +12,7 @@ import android.widget.TimePicker;
 import com.example.sxj52.lifeassistant.R;
 
 
-/**
- * Created by sy on 2016/9/13.
- */
+
 public class ADDDouteActivity extends AppCompatActivity
         implements View.OnClickListener {
 

@@ -4,9 +4,7 @@ import com.example.sxj52.lifeassistant.entity.BaseEntity;
 import com.google.gson.annotations.SerializedName;
 
 
-/**
- * Created by zhihao.wen on 2016/11/3.
- */
+
 
 public class ApiResponseWraperNoList<T> extends BaseEntity {
     @SerializedName("reason")

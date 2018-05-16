@@ -21,11 +21,7 @@ import com.example.sxj52.lifeassistant.view.ShowDialog;
 import org.greenrobot.eventbus.EventBus;
 
 
-/**
- * author：Administrator on 2016/12/21 14:06
- * description:文件说明
- * version:版本
- */
+
 public class ToolsActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

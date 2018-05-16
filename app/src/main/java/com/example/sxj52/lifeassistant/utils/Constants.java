@@ -1,10 +1,6 @@
 package com.example.sxj52.lifeassistant.utils;
 
-/**
- * @Author haopi
- * @Date 2016-09-06
- * @Des TODO
- */
+
 public class Constants {
     //musicservice的name
     public static final String MUSIC_SERVICE = "com.example.musicplayer.service.MusicService";

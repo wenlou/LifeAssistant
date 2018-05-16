@@ -13,9 +13,7 @@ import android.widget.TextView;
 import com.example.sxj52.lifeassistant.R;
 
 
-/**
- * Created by sy on 2016/9/8.
- */
+
 public class DayDataView extends LinearLayout {
 
     private LayoutInflater inflater;

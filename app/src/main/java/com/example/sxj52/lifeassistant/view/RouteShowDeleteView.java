@@ -13,9 +13,7 @@ import android.widget.RelativeLayout;
 import com.example.sxj52.lifeassistant.R;
 
 
-/**
- * Created by sy on 2016/9/13.
- */
+
 public class RouteShowDeleteView extends ListView implements View.OnTouchListener{
 
     private GestureDetector detector;                                    //手势

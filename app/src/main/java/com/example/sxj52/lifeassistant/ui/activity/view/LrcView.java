@@ -26,7 +26,7 @@ import java.util.List;
 
 /**
  * 歌词
- * Created by wcy on 2015/11/9.
+ *
  */
 public final class LrcView extends View {
     private List<LrcEntry> mLrcEntryList = new ArrayList<>();

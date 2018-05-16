@@ -7,9 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by sy on 2016/9/12.
- */
+
 public class DayInfo implements Serializable {
 
     HashMap<String,Info> infos = new HashMap<String ,Info>();

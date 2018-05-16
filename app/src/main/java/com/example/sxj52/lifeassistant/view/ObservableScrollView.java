@@ -1,8 +1,6 @@
 package com.example.sxj52.lifeassistant.view;
 
-/**
- * Created by WZH on 2016/11/6.
- */
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.GestureDetector;

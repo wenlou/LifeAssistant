@@ -16,9 +16,7 @@ import com.example.sxj52.lifeassistant.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Created by nomasp on 2015/10/08.
- */
+
 public class StopWatchView extends LinearLayout{
 
     private int tenMSecs = 0;

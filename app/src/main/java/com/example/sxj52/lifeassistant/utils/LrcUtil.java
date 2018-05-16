@@ -31,9 +31,7 @@ import okhttp3.Response;
 import static com.example.sxj52.lifeassistant.utils.Constants.URL_GET_MUSIC_ID;
 import static com.example.sxj52.lifeassistant.utils.Constants.URl_GET_MUSIC_LRC;
 
-/**
- * 专门用来解析歌词，.lrc;.txt;
- */
+
 public class LrcUtil {
     private static final String TAG = "LRCUtils";
 //    private MusicActivity activity;

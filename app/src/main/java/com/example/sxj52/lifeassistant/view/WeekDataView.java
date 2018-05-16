@@ -8,9 +8,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
 
-/**
- * Created by sy on 2016/9/7.
- */
+
 public class WeekDataView extends View {
 
     private int mTopLineColor = Color.parseColor("#CCE4F2"); // 上边线颜色

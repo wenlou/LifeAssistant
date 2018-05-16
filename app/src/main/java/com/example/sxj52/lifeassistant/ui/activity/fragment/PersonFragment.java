@@ -36,9 +36,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 
-/**
- * Created by WZH on 2016/11/4.
- */
 
 public class PersonFragment extends BaseFragment implements BaseFragment.OnReloadDataListener, View.OnClickListener {
 //    private Subscription sb ;

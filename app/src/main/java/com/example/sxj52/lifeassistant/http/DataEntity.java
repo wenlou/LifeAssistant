@@ -6,9 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by zhihao.wen on 2016/11/3.
- */
 
 public class DataEntity<T> extends BaseEntity {
     @SerializedName("stat")

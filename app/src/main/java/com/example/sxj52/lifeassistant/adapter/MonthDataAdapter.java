@@ -19,9 +19,7 @@ import java.util.List;
 
 
 
-/**
- * Created by sy on 2016/9/7.
- */
+
 public class MonthDataAdapter extends BaseAdapter {
 
     private int currentYear;          //当前的年

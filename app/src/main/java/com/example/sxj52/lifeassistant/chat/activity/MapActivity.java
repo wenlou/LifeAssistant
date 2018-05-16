@@ -44,9 +44,7 @@ import com.example.sxj52.lifeassistant.utils.PrefUtils;
 
 import java.util.List;
 
-/**
- * Created by kumaha on 16/7/13.
- */
+
 public class MapActivity extends AppCompatActivity {
     MapView mMapView = null;
     BaiduMap mBaiduMap = null;

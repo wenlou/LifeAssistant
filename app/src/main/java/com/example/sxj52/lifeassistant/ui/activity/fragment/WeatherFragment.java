@@ -76,7 +76,7 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
 
             @Override
             public void onNext(WeatherEntity weatherEntity) {
-                weatherEntities.clear();
+                 weatherEntities.clear();
                  weatherEntities.add(weatherEntity);
                  adapter.notifyDataSetChanged();
                  customPtrFrameLayout.refreshComplete();
@@ -92,7 +92,7 @@ public class WeatherFragment extends BaseFragment implements BaseFragment.OnRelo
         }
         if(weatherEntity1!=null) {
             request(false);
-           sb= Observable.just(weatherEntity1).subscribe(obXW);
+            sb= Observable.just(weatherEntity1).subscribe(obXW);
         }
 
         else{

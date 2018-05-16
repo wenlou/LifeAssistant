@@ -17,9 +17,7 @@ import com.example.sxj52.lifeassistant.R;
 import com.example.sxj52.lifeassistant.chat.activity.LoginActivity;
 
 
-/**
- * Created by zhihao.wen on 2016/4/7.
- */
+
 public abstract  class BaseFragment<T> extends Fragment {
     private View view ;
     private LayoutInflater inflater;

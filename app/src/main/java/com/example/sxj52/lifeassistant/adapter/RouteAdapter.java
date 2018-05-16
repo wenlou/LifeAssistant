@@ -12,9 +12,7 @@ import com.example.sxj52.lifeassistant.utils.Info;
 import java.util.List;
 
 
-/**
- * Created by sy on 2016/9/12.
- */
+
 public class RouteAdapter extends BaseAdapter {
 
     private Context context;
