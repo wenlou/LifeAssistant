@@ -14,7 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
+//具体请求方法和rxjava结合
 public class NetWorkUtil {
     private static OkHttpClient okHttpClient;
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();

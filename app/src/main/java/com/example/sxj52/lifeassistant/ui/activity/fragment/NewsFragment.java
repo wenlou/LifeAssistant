@@ -52,7 +52,7 @@ public class NewsFragment extends BaseFragment implements BaseFragment.OnReloadD
          initData();
          return getContentView() ;
     }
-
+    //新闻数据获取
     private void initData() {
 
         obXW = new Observer<NewsEntity>() {
@@ -134,8 +134,5 @@ public class NewsFragment extends BaseFragment implements BaseFragment.OnReloadD
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(obXW);
-
-
-
     }
 }

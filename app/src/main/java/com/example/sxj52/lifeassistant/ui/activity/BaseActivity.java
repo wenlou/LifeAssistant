@@ -32,7 +32,6 @@ public class BaseActivity extends FragmentActivity {
     private TextView error_tv ;
     private ImageView error_iv ;
     private RotateAnimation animation ;
-    private Context mContext;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

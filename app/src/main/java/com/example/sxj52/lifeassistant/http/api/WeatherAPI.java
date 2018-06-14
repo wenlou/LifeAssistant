@@ -12,12 +12,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import rx.Observable;
-
+//天气请求方法
 public interface WeatherAPI {
-//
-//    @SerializedName("HeWeather data service 3.0") @Expose
-//    public List<Weather> mHeWeatherDataService30s
-//            = new ArrayList<>();
+
     @GET("weather")
     Observable<WeatherEntity> mWeatherAPI(@QueryMap RequestParam param);
 }

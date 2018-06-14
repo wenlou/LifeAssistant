@@ -1,7 +1,9 @@
 package com.example.sxj52.lifeassistant.utils;
 
 
-
+/*
+  存放接口url地址以及接口密钥
+ */
 public class Constant {
     public static String BASE_URL = "http://v.juhe.cn/" ;
     public static String RANDOM_BASE_URL = "http://v.juhe.cn/joke/";
